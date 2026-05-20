@@ -27,8 +27,7 @@ export function Navbar() {
             onClick={close}
             className="font-display text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
           >
-            <span className="gradient-text">MFF</span>
-            <span className="hidden sm:inline"> · {SITE.name.split(' ')[0]}</span>
+            <span className="gradient-text">Muhammad Faisal</span>
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">
