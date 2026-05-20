@@ -9,7 +9,7 @@ import {
   FaXTwitter,
 } from 'react-icons/fa6'
 import { SITE } from '../../data/site'
-import { sendContactEmail } from '../../services/contactForm'
+import { submitContactForm } from '../../services/contactForm'
 
 const inputClass =
   'mt-2 w-full rounded-xl border border-slate-200/80 bg-white/70 px-4 py-3 text-sm text-slate-900 outline-none ring-violet-500/30 placeholder:text-slate-400 focus:ring-4 dark:border-white/10 dark:bg-slate-950/40 dark:text-white'
@@ -21,17 +21,11 @@ export function Contact() {
   const onSubmit = async (e) => {
     e.preventDefault()
     const form = e.currentTarget
-    const data = new FormData(form)
-
-    const name = String(data.get('name') ?? '').trim()
-    const email = String(data.get('email') ?? '').trim()
-    const subject = String(data.get('subject') ?? '').trim()
-    const message = String(data.get('message') ?? '').trim()
 
     setStatus('submitting')
     setErrorMessage('')
 
-    const result = await sendContactEmail({ name, email, subject, message })
+    const result = await submitContactForm(form)
 
     if (result.ok) {
       setStatus('success')
@@ -125,6 +119,8 @@ export function Contact() {
           </motion.div>
 
           <motion.form
+            action="https://api.web3forms.com/submit"
+            method="POST"
             onSubmit={onSubmit}
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -133,6 +129,7 @@ export function Contact() {
             className="glass rounded-2xl p-6 lg:col-span-3"
             noValidate={false}
           >
+            <input type="hidden" name="access_key" value={SITE.web3formsAccessKey} />
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="sm:col-span-1">
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">

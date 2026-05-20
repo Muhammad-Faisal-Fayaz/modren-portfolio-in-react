@@ -1,32 +1,21 @@
-export async function sendContactEmail(payload) {
-  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit'
 
-  if (!accessKey) {
-    return {
-      ok: false,
-      message:
-        'Contact form is not configured yet. Add VITE_WEB3FORMS_ACCESS_KEY to your .env file.',
-    }
-  }
-
-  const response = await fetch('https://api.web3forms.com/submit', {
+/** POST form data to Web3Forms (same as their HTML form integration). */
+export async function submitContactForm(form) {
+  const response = await fetch(WEB3FORMS_URL, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({
-      access_key: accessKey,
-      name: payload.name,
-      email: payload.email,
-      subject: payload.subject,
-      message: payload.message,
-      from_name: payload.name,
-      replyto: payload.email,
-    }),
+    body: new FormData(form),
   })
 
-  const data = await response.json()
+  let data
+  try {
+    data = await response.json()
+  } catch {
+    return {
+      ok: false,
+      message: 'Failed to send your message. Please try again later.',
+    }
+  }
 
   if (!response.ok || !data.success) {
     return {

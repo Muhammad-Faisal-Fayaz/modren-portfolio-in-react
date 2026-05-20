@@ -11,6 +11,8 @@ export const SITE = {
   name: 'Muhammad Faisal Fayaz',
   title: 'Frontend Web Developer | PHP Backend Developer',
   email: 'muhammadfaisalfayaz@gmail.com',
+  /** Web3Forms access key — https://web3forms.com */
+  web3formsAccessKey: 'cb430744-cbc5-4665-9425-cfb62878ba38',
   github: GITHUB_USER,
   linkedin: 'https://www.linkedin.com/in/muhammad-faisal-fayaz',
   twitter: 'https://twitter.com',
