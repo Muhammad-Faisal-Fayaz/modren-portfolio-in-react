@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in oklab, #7c3aed 35%, transparent);
+  color: inherit;
+}
+
+.glass {
+  @apply border border-white/20 bg-white/10 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/40;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-fuchsia-400 dark:to-cyan-400;
+}
+
+.mesh-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -20%, color-mix(in oklab, #7c3aed 25%, transparent), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 0%, color-mix(in oklab, #06b6d4 20%, transparent), transparent),
+    radial-gradient(ellipse 50% 30% at 50% 100%, color-mix(in oklab, #d946ef 18%, transparent), transparent);
+}
+
+.dark .mesh-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -20%, color-mix(in oklab, #6d28d9 35%, transparent), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 0%, color-mix(in oklab, #38bdf8 22%, transparent), transparent),
+    radial-gradient(ellipse 50% 30% at 50% 100%, color-mix(in oklab, #c026d3 22%, transparent), transparent);
+}
