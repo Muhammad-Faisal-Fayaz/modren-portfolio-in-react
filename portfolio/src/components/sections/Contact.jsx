@@ -5,6 +5,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaLocationDot,
+  FaPhone,
   FaPaperPlane,
   FaXTwitter,
 } from 'react-icons/fa6'
@@ -71,6 +72,17 @@ export function Contact() {
               >
                 <FaEnvelope className="h-5 w-5" />
                 {SITE.email}
+              </a>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">Phone</p>
+              <a
+                href={`tel:${SITE.phoneTel}`}
+                className="mt-1 inline-flex items-center gap-2 text-lg font-semibold text-slate-900 hover:text-violet-700 dark:text-white dark:hover:text-violet-300"
+              >
+                <FaPhone className="h-5 w-5" />
+                {SITE.phone}
               </a>
             </div>
 

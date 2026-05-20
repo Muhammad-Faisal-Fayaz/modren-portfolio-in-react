@@ -4,6 +4,7 @@ import {
   FaEnvelope,
   FaGithub,
   FaGlobe,
+  FaLinkedin,
 } from 'react-icons/fa6'
 import { useTypingEffect } from '../../hooks/useTypingEffect'
 import { SITE } from '../../data/site'
@@ -68,7 +69,7 @@ export function Hero() {
             </motion.a>
             <motion.a
               href={SITE.cvPath}
-              download
+              download="Muhammad-Faisal-Fayaz-CV.pdf"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300/80 bg-white/50 px-5 py-3 text-sm font-semibold text-slate-900 backdrop-blur-md dark:border-white/10 dark:bg-slate-900/40 dark:text-white"
@@ -86,7 +87,7 @@ export function Hero() {
             </motion.a>
           </div>
 
-          <div className="mt-8 flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+          <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
             <a
               href={SITE.github}
               target="_blank"
@@ -95,6 +96,15 @@ export function Hero() {
             >
               <FaGithub className="h-4 w-4" />
               GitHub
+            </a>
+            <a
+              href={SITE.linkedin}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/20 px-3 py-2 font-medium text-slate-800 backdrop-blur-md transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-100"
+            >
+              <FaLinkedin className="h-4 w-4" />
+              LinkedIn
             </a>
           </div>
         </motion.div>

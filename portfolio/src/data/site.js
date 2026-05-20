@@ -10,11 +10,13 @@ const GITHUB_USER = 'https://github.com/Muhammad-Faisal-Fayaz'
 export const SITE = {
   name: 'Muhammad Faisal Fayaz',
   title: 'Frontend Web Developer | PHP Backend Developer',
-  email: 'muhammadfaisalfayaz@gmail.com',
+  email: 'faisalkhanoo357@gmail.com',
+  phone: '+92 3255529518',
+  phoneTel: '+923255529518',
   /** Web3Forms access key — https://web3forms.com */
   web3formsAccessKey: 'cb430744-cbc5-4665-9425-cfb62878ba38',
   github: GITHUB_USER,
-  linkedin: 'https://www.linkedin.com/in/muhammad-faisal-fayaz',
+  linkedin: 'https://www.linkedin.com/in/muhammad-faisal-fayaz-4a072640a/',
   twitter: 'https://twitter.com',
   livePortfolio: 'https://intreactive-portfolio-git-main-muhammad-faisal-fayazs-projects.vercel.app/',
   /** Add `public/cv.pdf` and this link will download your file. */
